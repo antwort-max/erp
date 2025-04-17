@@ -3,17 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SysDepartment extends Model
 {
-    protected $fillable = [
-        'name',
-        'description',
-    ];
+    protected $table = 'sys_departments';
+    protected $fillable = ['name', 'description'];
 
-    // Relación con usuarios
-    public function users()
+    public function users(): HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'department_id');
     }
 }
