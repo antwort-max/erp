@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-require __DIR__.'/ecommerce.php';
-
-Route::get('/s', function () {
+Route::get('/', function () {
     return view('welcome');
 });
